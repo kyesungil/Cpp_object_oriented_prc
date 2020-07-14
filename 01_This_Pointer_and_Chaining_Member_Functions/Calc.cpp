@@ -7,13 +7,13 @@
 Calc::Calc(int val_in)
 	: m_val(val_in)
 {
-	std::cout << "this: "<< this << std::endl;
+	std::cout << "this: "<< this << std::endl; // this pointerë¡œ ì£¼ì†Œ ì¶œë ¥
 }
 
 //Calc::Calc(int val_in)
 //{
-//	this->setValue(val_in);		 // this°¡ ¼û¾î ÀÖ´Ù.
-//	// (*this).setValue(val_in); // ¸â¹ö Á¢±Ù
+//	this->setValue(val_in);		 // thisê°€ ìˆ¨ì–´ ìžˆëŠ”ê²ƒ
+//	// (*this).setValue(val_in);     // ë©¤ë²„ ì ‘ê·¼ 
 //}
 
 Calc& Calc::add(int val_in)
