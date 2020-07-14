@@ -23,13 +23,13 @@ public:
 
 int main()
 {
-	/* const vs non-const ¿À¹ö·Îµù ºñ±³ */
+	/* const vs non-const ì˜¤ë²„ë¡œë”© ë¹„êµ */
 
 	Something something;	   
-	something.getValue() = 10; // °¡´É // Ãâ·Â: non - const version
-
+	something.getValue() = 10; 		  // ê°€ëŠ¥ // ì¶œë ¥: non - const version
+					
 	const Something something2; 
-	something2.getValue();			  // Ãâ·Â: const version
+	something2.getValue();			  // ì¶œë ¥: const version
 
 	return 0;
 }
