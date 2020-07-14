@@ -1,49 +1,50 @@
-//#include <iostream>
-//
-//using namespace std;
-//
-//class Something
-//{
-//public:
-//	int m_value = 0;
-//
-//	Something()
-//	{
-//		cout << "Constructor" << endl;
-//	}
-//
-//	void setValue(int value) { m_value = value; }
-//	int  getValue() const { return m_value; }
-//};
-//
-//void print(Something st) // (const Something& st)ÀÏ °æ¿ì¿¡´Â º¹»ç°úÁ¤À» °ÅÄ¡Áö ¾Ê´Â´Ù.
-//{
-//
-//	cout << &st << endl;
-//
-//	cout << st.m_value << endl;
-//}
-//
-//int main()
-//{
-//	// something.setValue(3);	// constÀÌ¸é ¹Ù²Ü¼­ ¾ø´Ù.
-//	const Something something;	// Ãâ·Â: »ı¼ºÀÚ¿¡¼­ "Constructor"
-//	
-//
-//	/* 
-//	  -	ÀÎ½ºÅÏ½ºÀÇ °ªÀ» ¹Ù²ÙÁö ¾Ê´Â ÇÔ¼ö getValue()À» È£ÃâÇÒ·Á°í ÇØµµ
-//		¿¡·¯°¡ ¹ß»ıÇÑ´Ù. ÀÌÀ¯´Â ÄÄÆÄÀÏ·¯°¡ ÆÇ´ÜÇÒ¶§ °ª(¿©±â¼­´Â m_value)ÀÌ ¹Ù²å³Ä°¡ ±âÁØÀÌ ¾Æ´Ñ 
-//		¸â¹ö functionÀÌ constÀÎÁö ¾Æ´ÑÁöÀ» ÆÇ´ÜÇÑ´Ù. 
-//		±×·¸±â ¶§¹®¿¡ »ç¿ëÇÏ±â À§ÇØ¼­´Â ÇÔ¼ö¿¡ constÀ» ÃÄÁà¾ßÇÑ´Ù.
-//
-//		tip! 
-//		- const·Î ¸·¾ÆÁÙ functionÀº ¸ğµÎ »ç¿ëÇØÁÖ´Â°Ô ÁÁÀ½!(½Ç¼ö¸¦ ÁÙÀÏ¼ö ÀÖ´Ù.)
-//	*/
-//	cout << something.getValue() << endl; // 0
-//	
-//	cout << &something << endl;			  // Ãâ·Â: 012FFB3C
-//
-//	print(something);					  // Ãâ·Â: 012FFA68, 0
-//
-//	return 0;
-//}
+#include <iostream>
+
+using namespace std;
+
+class Something
+{
+public:
+	int m_value = 0;
+
+	Something()
+	{
+		cout << "Constructor" << endl;
+	}
+
+	void setValue(int value) { m_value = value; }
+	int  getValue() const { return m_value; }     // constë¡œ ë§‰ì•„ì¤€ í•¨ìˆ˜-> constë¡œ ì§€ì •í•œ ì¸ìŠ¤í„´ìŠ¤ ê²½ìš° í˜¸ì¶œ ê°€ëŠ¥
+};
+
+void print(Something st)       // (const Something& st)ì¼ ê²½ìš°ì—ëŠ” ë³µì‚¬ê³¼ì •ì„ ê±°ì¹˜ì§€ ì•ŠëŠ”ë‹¤.
+{
+
+	cout << &st << endl;
+
+	cout << st.m_value << endl;
+}
+
+int main()
+{
+	// something.setValue(3);	  // constì´ë©´ ë°”ê¿€ì„œ ì—†ë‹¤.
+	const Something something;	// ì¶œë ¥: ìƒì„±ìì—ì„œ "Constructor"
+	
+
+	/* 
+	  -	ì¸ìŠ¤í„´ìŠ¤ì˜ ê°’ì„ ë°”ê¾¸ì§€ ì•ŠëŠ” í•¨ìˆ˜ getValue()ì„ í˜¸ì¶œí• ë ¤ê³  í•´ë„ ì—ëŸ¬ê°€ ë°œìƒí•œë‹¤. 
+      ì´ìœ ëŠ” ì»´íŒŒì¼ëŸ¬ê°€ íŒë‹¨í• ë•Œ ê°’(ì—¬ê¸°ì„œëŠ” m_value)ì´ ë°”ê¿¨ëƒê°€ ê¸°ì¤€ì´ ì•„ë‹Œ, 
+      ë©¤ë²„ functionì´ constì¸ì§€ ì•„ë‹Œì§€ì„ íŒë‹¨í•œë‹¤. 
+		  ê·¸ë ‡ê¸° ë•Œë¬¸ì— ì‚¬ìš©í•˜ê¸° ìœ„í•´ì„œëŠ” í•¨ìˆ˜ì— constì„ ì³ì¤˜ì•¼í•œë‹¤.
+
+	  Tip! 
+		- constë¡œ ë§‰ì•„ì¤„ functionì€ ëª¨ë‘ ì‚¬ìš©í•´ì£¼ëŠ”ê²Œ ì¢‹ìŒ!(ì‹¤ìˆ˜ë¥¼ ì¤„ì¼ìˆ˜ ìˆë‹¤.)
+	*/
+  
+	cout << something.getValue() << endl; // 0
+	
+	cout << &something << endl;			      // ì¶œë ¥: 012FFB3C
+
+	print(something);					            // ì¶œë ¥: 012FFA68, 0
+
+	return 0;
+}
